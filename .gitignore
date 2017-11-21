@@ -1,0 +1,10 @@
+/vendor/*
+/tmp/*
+/logs/*
+/.idea
+.DS_Store
+/webroot/files
+/config/database/local.php
+
+/config/sheets.googleapis.com-php-quickstart.json
+/config/Migrations/schema-dump-default.lock

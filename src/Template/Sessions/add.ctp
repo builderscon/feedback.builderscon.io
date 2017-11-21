@@ -1,0 +1,51 @@
+<?php
+/**
+  * @var \App\View\AppView $this
+  */
+?>
+<?php
+$this->extend('../Layout/TwitterBootstrap/dashboard');
+
+$this->start('tb_actions');
+?>
+    <li><?= $this->Html->link(__('List Sessions'), ['action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List Conferences'), ['controller' => 'Conferences', 'action' => 'index']) ?> </li>
+    <li><?= $this->Html->link(__('New Conference'), ['controller' => 'Conferences', 'action' => 'add']) ?> </li>
+    <li><?= $this->Html->link(__('List Speakers'), ['controller' => 'Speakers', 'action' => 'index']) ?> </li>
+    <li><?= $this->Html->link(__('New Speaker'), ['controller' => 'Speakers', 'action' => 'add']) ?> </li>
+    <li><?= $this->Html->link(__('List Vote Groups'), ['controller' => 'VoteGroups', 'action' => 'index']) ?> </li>
+    <li><?= $this->Html->link(__('New Vote Group'), ['controller' => 'VoteGroups', 'action' => 'add']) ?> </li>
+    <li><?= $this->Html->link(__('List Votes'), ['controller' => 'Votes', 'action' => 'index']) ?> </li>
+    <li><?= $this->Html->link(__('New Vote'), ['controller' => 'Votes', 'action' => 'add']) ?> </li>
+<?php
+$this->end();
+
+$this->start('tb_sidebar');
+?>
+<ul class="nav nav-sidebar">
+    <li><?= $this->Html->link(__('List Sessions'), ['action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List Conferences'), ['controller' => 'Conferences', 'action' => 'index']) ?> </li>
+    <li><?= $this->Html->link(__('New Conference'), ['controller' => 'Conferences', 'action' => 'add']) ?> </li>
+    <li><?= $this->Html->link(__('List Speakers'), ['controller' => 'Speakers', 'action' => 'index']) ?> </li>
+    <li><?= $this->Html->link(__('New Speaker'), ['controller' => 'Speakers', 'action' => 'add']) ?> </li>
+    <li><?= $this->Html->link(__('List Vote Groups'), ['controller' => 'VoteGroups', 'action' => 'index']) ?> </li>
+    <li><?= $this->Html->link(__('New Vote Group'), ['controller' => 'VoteGroups', 'action' => 'add']) ?> </li>
+    <li><?= $this->Html->link(__('List Votes'), ['controller' => 'Votes', 'action' => 'index']) ?> </li>
+    <li><?= $this->Html->link(__('New Vote'), ['controller' => 'Votes', 'action' => 'add']) ?> </li>
+</ul>
+<?php
+$this->end();
+?>
+<?= $this->Form->create($session); ?>
+<fieldset>
+    <legend><?= __('Add {0}', ['Session']) ?></legend>
+    <?php
+    echo $this->Form->control('conference_id', ['options' => $conferences]);
+    echo $this->Form->control('speaker_id', ['options' => $speakers]);
+    echo $this->Form->control('vote_group_id', ['options' => $voteGroups]);
+    echo $this->Form->control('hash');
+    echo $this->Form->control('name');
+    ?>
+</fieldset>
+<?= $this->Form->button(__("Add")); ?>
+<?= $this->Form->end() ?>
